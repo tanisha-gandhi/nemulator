@@ -13,8 +13,9 @@ git pull
 # virutal enviornment (venv)
 ## Mac 
 python3 -m venv venv  (create venv)
-source venv/bin/activate ( activate venv)
+source venv/bin/activate (activate venv)
 
 ## windows
 python -m venv venv  (create venv) 
-.\venv\Scripts\Activate.ps1 (activate venv)
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass (bypass execution policy)
+.\venv\Scripts\activate.bat (activate venv)
