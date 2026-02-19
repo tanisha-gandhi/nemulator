@@ -1,1 +1,3 @@
-# nemulator
+# Nemulator
+
+Stars of the City TTRPG Calculator
