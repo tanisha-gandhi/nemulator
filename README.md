@@ -16,5 +16,5 @@ python3 -m venv venv  (create venv)
 source venv/bin/activate ( activate venv)
 
 ## windows
-python -m venv venv   
-.\venv\Scripts\Activate.ps1
+python -m venv venv  (create venv) 
+.\venv\Scripts\Activate.ps1 (activate venv)
