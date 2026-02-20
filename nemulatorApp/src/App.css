@@ -17,11 +17,14 @@
 
 
 .box {
+  justify-content: flex-start;
+  display: flex;
   color:aliceblue;
   width: 50vw;
   height: 97vh;
   background-color: rgb(38, 38, 38);
   margin: 10px;
+  padding: 10px;
 }
 
 
