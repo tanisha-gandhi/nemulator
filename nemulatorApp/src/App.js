@@ -1,5 +1,4 @@
-import './App.css';
-import './global.css';
+import './style.css';
 
 function App() {
   return (
