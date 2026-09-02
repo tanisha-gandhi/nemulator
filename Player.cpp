@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <vector>
 
 
 class Player{
@@ -35,6 +36,10 @@ private:
 
 public:
     // default constructor
+    Player() {
+
+    }
+
     Player(char* name, int health, int stagger, int light){
         std::strcpy(this->name, name);
         HP = health;
@@ -43,7 +48,47 @@ public:
         maxStagRes = stagger;
         light = light;
         maxLight = light;
+    }
 
+    // getter and setter functions
+    void setName(char* newName) {
+        std::strcpy(name, newName);
+    }
+    char* getName() {
+        return name;
+    }
+
+    void setMaxHP(int newMaxHP) {
+        maxHP = newMaxHP;
+        HP = maxHP;
+    }
+    int getMaxHP() {
+        return maxHP;
+    }
+    int getHP() {
+        return HP;
+    }
+
+    void setMaxStagRes(int newMaxStagRes) {
+        maxStagRes = newMaxStagRes;
+        stagRes = maxStagRes;
+    }
+    int getMaxStagRes() {
+        return maxStagRes;
+    }
+    int getStagRes() {
+        return stagRes;
+    }
+
+    void setMaxLight(int newMaxLight) {
+        maxLight = newMaxLight;
+        light = maxLight;
+    }
+    int getMaxLight() {
+        return maxLight;
+    }
+    int getLight() {
+        return light;
     }
 
     void endScene(Player player){
@@ -108,9 +153,50 @@ public:
 
 };
 
+void printPlayerStats(Player player) {
+    std::cout << "Name: " << player.getName() << "\n";
+    std::cout << "HP: " << player.getHP() << "/" << player.getMaxHP() << "\n";
+    std::cout << "Stagger Resistance: " << player.getStagRes() << "/" << player.getMaxStagRes() << "\n";
+    std::cout << "Light: " << player.getLight() << "/" << player.getMaxLight() << "\n\n";
+} //end printplayerstats
+
+Player initPlayer() {
+    char name[50];
+    int health;
+    int stagger;
+    int light;
+
+    std::cin.ignore(1000, '\n'); // Clears the buffer
+    std::cout << "Enter player's name: ";
+    std::cin.ignore(1000, '\n'); // Clears the buffer
+    std::cout << "Enter Player's Max HP: ";
+    std::cin.ignore(1000, '\n'); // Clears the buffer
+    std::cout << "Enter Player's Max Stagger Resistance: ";
+    std::cin.ignore(1000, '\n'); // Clears the buffer
+    std::cout << "Enter Player's Max Light: ";
+    std::cin.ignore(1000, '\n'); // Clears the buffer
+
+    //not storing properly
+    return {name, health, stagger, light};
+} //end initParty
 
 int main(){
+    //ask how many players there are with input read
+    int numPlayers;
+    std::cout << "Enter number of players: ";
+    std::cin >> numPlayers;
+
+    //initialize class objects
+    Player players[numPlayers];
+
+    //ask player names and stats
+    for (int i = 0; i < numPlayers; i++) {
+        players[i] = initPlayer();
+    }
+
+    std::cout << "Printing Party Details... \n";
+    for (int i = 0; i < numPlayers; i++) {
+        printPlayerStats(players[i]);
+    }
     return 0;
 }
-
-
